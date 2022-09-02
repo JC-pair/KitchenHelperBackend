@@ -1,12 +1,13 @@
 const {Client} = require('pg');
 
+
 const recipeSearch = async () => {
   try {
     const client = new Client({
       user: 'cihadakkaya',
       host: 'localhost',
       database: 'sdc',
-      port: 5432}
+      port: process.env.PORT}
     )
     await client.connect()
     let result = await client.query('SELECT * FROM photos');
